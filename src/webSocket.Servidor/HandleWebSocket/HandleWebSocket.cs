@@ -5,7 +5,7 @@ namespace webSocket.Servidor.HandleWebSocket;
 
 internal static class HandleWebSocket
 {
-    internal static async Task HandleWebSocketAsync(ClientInfo clientInfo, object _lock, List<ClientInfo> _clients)
+    internal static async Task HandleWebSocketAsync(ClientInfo clientInfo, object _lock, IList<ClientInfo> _clients)
     {
         var buffer = new byte[1024 * 4];
         var segment = new ArraySegment<byte>(buffer);

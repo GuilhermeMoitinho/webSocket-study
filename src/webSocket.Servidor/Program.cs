@@ -4,7 +4,7 @@ using webSocket.Servidor.HandleWebSocket;
 
 class Program
 {
-    private static readonly List<ClientInfo> _clients = new List<ClientInfo>();
+    private static readonly IList<ClientInfo> _clients = new List<ClientInfo>();
     private static readonly object _lock = new object();
 
     static async Task Main(string[] args)
