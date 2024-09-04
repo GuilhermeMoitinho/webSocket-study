@@ -36,7 +36,7 @@ internal static class HandleWebSocket
                 else
                 {
                     var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
-                    Console.WriteLine($"{clientInfo.Nome}: {message}");
+                    Console.WriteLine($"{clientInfo.Nome}  ({clientInfo.Id}): {message}");
 
                     List<Task> sendTasks = new List<Task>();
                     lock (_lock)
@@ -45,7 +45,7 @@ internal static class HandleWebSocket
                         {
                             if (client != clientInfo && client.WebSocket.State == WebSocketState.Open)
                             {
-                                var responseMessage = $"{clientInfo.Nome} ({clientInfo.Id}): {message}";
+                                var responseMessage = $"{clientInfo.Nome}: {message}";
                                 var responseBuffer = Encoding.UTF8.GetBytes(responseMessage);
                                 var responseSegment = new ArraySegment<byte>(responseBuffer);
 
